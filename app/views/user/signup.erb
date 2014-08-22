@@ -1,0 +1,11 @@
+<div class="container">
+  <% if @errors %>
+    <p><%= @errors.full_messages %></p>
+  <% end %>
+  <form action="/user/signup" method="POST">
+    <input placeholder="email" name="user[email]" type="email">
+    <input placeholder="password" type="password" name="user[password]">
+    <input placeholder="confirm password" type="password" name="user[password_confirmation]">
+    <input type="submit" value="sign up" name="submit" class="submit">
+  </form>
+</div>
