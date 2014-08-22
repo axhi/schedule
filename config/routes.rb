@@ -1,10 +1,22 @@
-Schedule::Application.routes.draw do
+Scheduleit::Application.routes.draw do
+  resources :employee_positions
+
+  devise_for :employees
+  get "home/index"
+  resources :positions
+
+  resources :shifts
+
+  resources :schedules
+
+  resources :organizations
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+  root :to => "home#index"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

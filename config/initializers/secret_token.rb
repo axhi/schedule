@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Schedule::Application.config.secret_key_base = '883b2135b1abf93fad7938016f9887f83eb15044549f9b64e6847b151d2e508cd6b2f0c0b70281d6ca4709310723065b69694a8a1cd329420f7083d7262d9222'
+Scheduleit::Application.config.secret_key_base = '883b2135b1abf93fad7938016f9887f83eb15044549f9b64e6847b151d2e508cd6b2f0c0b70281d6ca4709310723065b69694a8a1cd329420f7083d7262d9222'

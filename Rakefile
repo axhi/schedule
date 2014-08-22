@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Schedule::Application.load_tasks
+Scheduleit::Application.load_tasks
