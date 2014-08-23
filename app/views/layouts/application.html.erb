@@ -2,14 +2,38 @@
 <html>
 <head>
   <title>Schedule</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="main-header">
+  <header>
+    <h1 class="headerh1"><a href="/">scheduleit</a></h1>
+  </header>
+  <nav>
+  <% if employee_signed_in? %>
+  <ul class="nav-links">
+    <li>
+      <a href="/organizations/new">request off</a>
+    </li>
+    <li>
+      <a href="/organizations/new">create organization</a>
+    </li>
+    <li>
+      <a href="/employees/edit">edit</a>
+    </li>
+    <li>
+    <%= link_to('logout', destroy_employee_session_path, :method => :delete) %>
+    </li>
+  </ul>
+    <% end %>
+  </nav>
+</div>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+<div class="body-content-main">
 <%= yield %>
-
+</div>
 </body>
 </html>

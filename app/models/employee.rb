@@ -1,7 +1,5 @@
 class Employee < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
+  attr_accessor :key
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -11,10 +9,13 @@ class Employee < ActiveRecord::Base
   has_many :schedules
   has_many :shifts, through: :schedules
   has_many :managers, through: :positions
-  # has_many :managers, through: :organization
+  before_update :find_organization
 
-  # def manager
-    # self.positions.where(name: "Manager") != []
-  # end
+private
+ def find_organization
+  unless key.nil?
+    self.organization = Organization.find_by(key_code: key)
+  end
+ end
 
 end

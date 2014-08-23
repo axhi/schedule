@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140822192004) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "employee_positions", force: true do |t|
     t.integer  "employee_id"
     t.integer  "position_id"
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 20140822192004) do
     t.datetime "updated_at"
   end
 
-  add_index "employees", ["email"], name: "index_employees_on_email", unique: true
-  add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
+  add_index "employees", ["email"], name: "index_employees_on_email", unique: true, using: :btree
+  add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true, using: :btree
 
   create_table "organizations", force: true do |t|
     t.string   "key_code"
